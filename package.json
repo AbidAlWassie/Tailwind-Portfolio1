@@ -1,0 +1,22 @@
+{
+  "name": "tailwind-portfolio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./src/styles.css -o ./build/styles.css --JIT --purge=\"./*.html\" --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbidAlWassie/Tailwind-Portfolio1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbidAlWassie/Tailwind-Portfolio1/issues"
+  },
+  "homepage": "https://github.com/AbidAlWassie/Tailwind-Portfolio1#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.16"
+  }
+}
