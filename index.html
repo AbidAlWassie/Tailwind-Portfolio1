@@ -23,15 +23,15 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-indigo-800 text-white px-3 py-2 rounded-md text-sm font-bold" aria-current="page">Home</a>
+              <a href="#section1" class="bg-indigo-800 text-white px-3 py-2 rounded-md text-sm font-bold" aria-current="page">Home</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
+              <a href="#section2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+              <a href="#section3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href="#section4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+              <a href="#section5" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
             </div>
           </div>
 
@@ -65,15 +65,15 @@
     <div class="md:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
+        <a href="#section1" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+        <a href="#section2" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+        <a href="#section3" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#section4" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <a href="#section5" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
       </div>
       
     </div>
@@ -103,7 +103,7 @@
   </div> -->
   </section>
 
-  <section class="red">
+  <section id="section1" class="red">
     <h1>Nice Curves</h1>
     <p>Et expedita tempora recusandae! Obcaecati error quibusdam ea consectetur dicta deserunt omnis atque provident cumque possimus eaque quisquam magnam molestiae reprehenderit fugiat, vitae fuga! Alias cum velit itaque cupiditate eum.</p>
     <div class="wave">
@@ -113,11 +113,12 @@
     </div>
   </section>
 
-  <section>
+  <section id="section2">
     <h1>Nice Curves</h1>
     <p>Obcaecati molestias sunt illum iure voluptas fugiat provident pariatur quo veritatis aut repellendus vero quod tenetur unde perferendis qui animi laborum, numquam quos blanditiis eveniet. Corporis vero dolore beatae amet.</p>
   </section>
-  <section class="blue">
+
+  <section id="section3" class="blue">
     <h1>Nice Curves</h1>
     <p>Asperiores aspernatur iusto assumenda, inventore perspiciatis quae dignissimos beatae nobis eligendi laudantium, vitae in? Dolor ipsa repellendus quidem ad, explicabo non sapiente dolore facere quod officia quo odit voluptates pariatur?</p>
     <div class="custom-shape-divider-top-1633808053">
@@ -126,10 +127,69 @@
       </svg>
   </div>
   </section>
-  <section>
+
+  <section id="section4">
     <h1>Nice Curves</h1>
     <p>Non delectus adipisci dignissimos accusamus quam incidunt optio reprehenderit rem. Quae ab itaque laborum magni, eligendi praesentium fugiat fugit alias explicabo soluta consequuntur doloribus suscipit nulla nobis, vel quidem molestias?</p>
   </section>
-  <script src="JS/script.js"></script>
+<!-- Main Js File -->
+<script src="JS/script.js"></script>
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Scroll Spy -->
+<script>
+
+// Cache selectors
+var lastId,
+    topMenu = $("#menu-content"),
+    topMenuHeight = topMenu.outerHeight()+175,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  if (!helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.add("hidden");
+	  }
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+    var fromTop = $(this).scrollTop()+topMenuHeight;
+
+    // Get id of current scroll item
+    var cur = scrollItems.map(function(){
+      if ($(this).offset().top < fromTop)
+        return this;
+    });
+    // Get the id of the current element
+    cur = cur[cur.length-1];
+    var id = cur && cur.length ? cur[0].id : "";
+
+    if (lastId !== id) {
+        lastId = id;
+        // Set/remove active class
+        menuItems
+          .parent().removeClass("font-bold")
+          .end().filter("[href='#"+id+"']").parent().addClass("font-bold");
+    }                   
+});
+
+</script>
 </body>
 </html>
