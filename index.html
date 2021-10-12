@@ -11,7 +11,7 @@
 <body>
   <!-- Nav Start -->
 
-  <nav class="bg-gray-900">
+  <nav id="navbar" class="bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
@@ -57,6 +57,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+          <!-- Mobile menu button end -->
         </div>
       </div>
     </div>
@@ -77,8 +78,9 @@
       </div>
       
     </div>
-  </nav>
+    <!-- Mobile nav end -->
 
+  </nav>
   <!-- Nav End -->
 
   <section class="">
@@ -134,6 +136,22 @@
   </section>
 <!-- Main Js File -->
 <script src="JS/script.js"></script>
+
+<script>
+  window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+</script>
 
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
