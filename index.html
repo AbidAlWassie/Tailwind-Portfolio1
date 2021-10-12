@@ -24,7 +24,7 @@
             <ul class="list-reset ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <li>
-                <a href="#section1" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+                <a href="#section1" class=" text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
               </li>
 
               <li>
@@ -75,17 +75,30 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="md:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3" id="mobileMenuContent">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <!-- <a href="#section1" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
+        <ul class="">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <li>
+            <a href="#section1" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+          </li>
 
-        <a href="#section2" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+          <li>
+            <a href="#section2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
+          </li>
+          
+          <li>
+            <a href="#section3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+          </li>
+          
+          <li>
+            <a href="#section4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+          </li>
 
-        <a href="#section3" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-
-        <a href="#section4" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-
-        <a href="#section5" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a> -->
+          <li>
+            <a href="#section5" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+          </li>
+        </ul>
       </div>
       
     </div>
@@ -163,7 +176,7 @@
 // Cache selectors
 var lastId,
     topMenu = $("#menu-content"),
-    topMenuHeight = topMenu.outerHeight()+175,
+    topMenuHeight = topMenu.outerHeight()+300,
     // All list items
     menuItems = topMenu.find("a"),
     // Anchors corresponding to menu items
@@ -204,6 +217,55 @@ $(window).scroll(function(){
         lastId = id;
         // Set/remove active class
         menuItems
+          .parent().removeClass("active")
+          .end().filter("[href='#"+id+"']").parent().addClass("active");
+    }                   
+});
+
+// Cache selectors
+var lastId,
+    topMobileMenu = $("#mobileMenuContent"),
+    topMobileMenuHeight = topMobileMenu.outerHeight()+300,
+    // All list items
+    menuMobileItems = topMobileMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollMobileItems = menuMobileItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuMobileItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMobileMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  if (!helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.add("hidden");
+	  }
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+    var fromTop = $(this).scrollTop()+topMobileMenuHeight;
+
+    // Get id of current scroll item
+    var cur = scrollMobileItems.map(function(){
+      if ($(this).offset().top < fromTop)
+        return this;
+    });
+    // Get the id of the current element
+    cur = cur[cur.length-1];
+    var id = cur && cur.length ? cur[0].id : "";
+
+    if (lastId !== id) {
+        lastId = id;
+        // Set/remove active class
+        menuMobileItems
           .parent().removeClass("active")
           .end().filter("[href='#"+id+"']").parent().addClass("active");
     }                   
