@@ -18,6 +18,24 @@ section {
 
 #navbar {
   z-index: 1000;
+  padding: 10px 0;
+  transition: 0.3s ease-in-out;
+  background: #11182756;
+}
+
+#navbar.sticky {
+  padding: 0 0;
+  background: #111827;
+}
+
+.active {
+  background: #3730a3;
+  color: white;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.375rem;
 }
 
 .sticky {
