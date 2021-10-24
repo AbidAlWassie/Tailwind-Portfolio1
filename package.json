@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/styles.css -o ./build/styles.css --JIT --purge=\"./*.html\" --watch"
+    "tailwind": "npx tailwindcss -i ./src/styles.css -o ./build/styles.css --JIT --purge=\"./*.html\" --watch",
+    "tailwind-full": "npx tailwindcss -i ./src/styles.css -o ./build/styles.css"
   },
   "repository": {
     "type": "git",
