@@ -47,6 +47,9 @@
           </div>
 
         </div>
+
+
+        
         <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
           <button id="navBtn" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -70,39 +73,14 @@
           </button>
           <!-- Mobile menu button end -->
         </div>
+
+
       </div>
     </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3" id="mobileMenuContent">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <ul class="">
-          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <li>
-            <a href="#section1" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
-          </li>
-
-          <li>
-            <a href="#section2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
-          </li>
-          
-          <li>
-            <a href="#section3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-          </li>
-          
-          <li>
-            <a href="#section4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-          </li>
-
-          <li>
-            <a href="#section5" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-          </li>
-        </ul>
-      </div>
-      
-    </div>
-    <!-- Mobile nav end -->
+<!-- Mobile menu, show/hide based on menu state. -->
+<!-- Mobile nav end -->
+    
 
   </nav>
   <!-- Nav End -->
@@ -222,54 +200,56 @@ $(window).scroll(function(){
     }                   
 });
 
+
+// Mobile Scrollspy
 // Cache selectors
-var lastId,
-    topMobileMenu = $("#mobileMenuContent"),
-    topMobileMenuHeight = topMobileMenu.outerHeight()+300,
-    // All list items
-    menuMobileItems = topMobileMenu.find("a"),
-    // Anchors corresponding to menu items
-    scrollMobileItems = menuMobileItems.map(function(){
-      var item = $($(this).attr("href"));
-      if (item.length) { return item; }
-    });
+// var lastId,
+//     topMobileMenu = $("#mobileMenuContent"),
+//     topMobileMenuHeight = topMobileMenu.outerHeight()+300,
+//     // All list items
+//     menuMobileItems = topMobileMenu.find("a"),
+//     // Anchors corresponding to menu items
+//     scrollMobileItems = menuMobileItems.map(function(){
+//       var item = $($(this).attr("href"));
+//       if (item.length) { return item; }
+//     });
 
-// Bind click handler to menu items
-// so we can get a fancy scroll animation
-menuMobileItems.click(function(e){
-  var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMobileMenuHeight+1;
-  $('html, body').stop().animate({ 
-      scrollTop: offsetTop
-  }, 300);
-  if (!helpMenuDiv.classList.contains("hidden")) {
-		helpMenuDiv.classList.add("hidden");
-	  }
-  e.preventDefault();
-});
+// // Bind click handler to menu items
+// // so we can get a fancy scroll animation
+// menuMobileItems.click(function(e){
+//   var href = $(this).attr("href"),
+//       offsetTop = href === "#" ? 0 : $(href).offset().top-topMobileMenuHeight+1;
+//   $('html, body').stop().animate({ 
+//       scrollTop: offsetTop
+//   }, 300);
+//   if (!helpMenuDiv.classList.contains("hidden")) {
+// 		helpMenuDiv.classList.add("hidden");
+// 	  }
+//   e.preventDefault();
+// });
 
-// Bind to scroll
-$(window).scroll(function(){
-   // Get container scroll position
-    var fromTop = $(this).scrollTop()+topMobileMenuHeight;
+// // Bind to scroll
+// $(window).scroll(function(){
+//    // Get container scroll position
+//     var fromTop = $(this).scrollTop()+topMobileMenuHeight;
 
-    // Get id of current scroll item
-    var cur = scrollMobileItems.map(function(){
-      if ($(this).offset().top < fromTop)
-        return this;
-    });
-    // Get the id of the current element
-    cur = cur[cur.length-1];
-    var id = cur && cur.length ? cur[0].id : "";
+//     // Get id of current scroll item
+//     var cur = scrollMobileItems.map(function(){
+//       if ($(this).offset().top < fromTop)
+//         return this;
+//     });
+//     // Get the id of the current element
+//     cur = cur[cur.length-1];
+//     var id = cur && cur.length ? cur[0].id : "";
 
-    if (lastId !== id) {
-        lastId = id;
-        // Set/remove active class
-        menuMobileItems
-          .parent().removeClass("active")
-          .end().filter("[href='#"+id+"']").parent().addClass("active");
-    }                   
-});
+//     if (lastId !== id) {
+//         lastId = id;
+//         // Set/remove active class
+//         menuMobileItems
+//           .parent().removeClass("active")
+//           .end().filter("[href='#"+id+"']").parent().addClass("active");
+//     }                   
+// });
 
 </script>
 </body>
