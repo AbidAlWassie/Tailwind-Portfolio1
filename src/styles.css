@@ -1,5 +1,9 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+@layer components {
+  .nav-btn {
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+  }
+}
