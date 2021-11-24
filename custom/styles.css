@@ -136,3 +136,7 @@ section {
 .custom-shape-divider-top-1633808053 .shape-fill {
   fill: #1d1d1d;
 }
+
+.active--hover {
+  background: #483fbe !important;
+}
