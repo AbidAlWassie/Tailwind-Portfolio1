@@ -28,20 +28,6 @@ section {
   background: #111827;
 }
 
-.active {
-  background: #3730a3;
-  color: white;
-  padding-left: 0.1.5rem;
-  padding-right: 0.1.5rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  border-radius: 0.375rem;
-}
-
-.active:hover {
-  background: #443bbd !important;
-}
-
 .sticky {
   position: fixed;
   top: 0;
@@ -150,5 +136,3 @@ section {
 .custom-shape-divider-top-1633808053 .shape-fill {
   fill: #1d1d1d;
 }
-
-
