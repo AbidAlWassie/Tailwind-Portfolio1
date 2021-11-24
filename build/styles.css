@@ -617,20 +617,6 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.active {
-  background: #3730a3 !important;
-  color: white;
-  padding-left: 0.1.5rem;
-  padding-right: 0.1.5rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  border-radius: 0.375rem;
-}
-
-.active:hover {
-  background: #443bbd !important;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

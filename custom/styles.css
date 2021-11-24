@@ -137,6 +137,16 @@ section {
   fill: #1d1d1d;
 }
 
-.active--hover {
+.active {
+  background: #3730a3;
+  color: white;
+  padding-left: 0.1.5rem;
+  padding-right: 0.1.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.375rem;
+}
+
+.active:hover {
   background: #483fbe !important;
 }
