@@ -150,3 +150,14 @@ section {
 .active:hover {
   background: #483fbe !important;
 }
+
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    background-color: #1d1d1d;
+    width: 100%;
+    position: relative;
+    top: 100px;
+    z-index: 1000;
+  }
+}
