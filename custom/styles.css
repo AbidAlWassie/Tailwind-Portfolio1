@@ -21,29 +21,6 @@ section {
   padding: 100px 20vw;
 }
 
-#navbar {
-  z-index: 1000;
-  padding: 10px 0;
-  transition: 0.3s ease-in-out;
-  background: #11182756;
-}
-
-#navbar.sticky {
-  padding: 0 0;
-  background: #111827;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
-}
-
 .blue {
   background: #3c31dd;
 }
@@ -156,7 +133,57 @@ section {
   background: #483fbe !important;
 }
 
+.nav-list {
+  z-index: 0 !important;
+}
+
+section {
+  z-index: -120;
+}
+
+/* Large Screen */
+@media (min-width: 768px) {
+  #navbar {
+    z-index: 1000;
+    padding: 10px 0;
+    transition: 0.3s ease-in-out;
+    background: #11182756;
+  }
+
+  #navbar.sticky {
+    padding: 0 0;
+    background: #111827;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 60px;
+  }
+}
+
+/* Small Screen */
 @media (max-width: 768px) {
+  #navbar.sticky {
+    padding: default;
+    background: #111827;
+  }
+
+  .sticky {
+    position: fixed;
+    top: default;
+    width: 100%;
+  }
+
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: default;
+  }
+
   /* #menu-content {
     position: relative;
   } */
@@ -164,16 +191,15 @@ section {
     flex-direction: column;
     position: relative;
     top: -100px !important;
-    transition: 200ms ease-in-out;
+    transition: 150ms ease-in-out;
     background-color: #1d1d1d;
     width: 100%;
     position: relative;
     top: 100px;
-    z-index: 1000;
   }
 
-  .show {
+  .nav-list.show {
     top: 100px !important;
-    transition: 200ms ease-in-out;
+    transition: 150ms ease-in-out;
   }
 }
