@@ -157,12 +157,23 @@ section {
 }
 
 @media (max-width: 768px) {
+  /* #menu-content {
+    position: relative;
+  } */
   .nav-list {
     flex-direction: column;
+    position: relative;
+    top: -100px !important;
+    transition: 200ms ease-in-out;
     background-color: #1d1d1d;
     width: 100%;
     position: relative;
     top: 100px;
     z-index: 1000;
+  }
+
+  .show {
+    top: 100px !important;
+    transition: 200ms ease-in-out;
   }
 }

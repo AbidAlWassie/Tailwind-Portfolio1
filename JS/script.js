@@ -6,11 +6,11 @@ window.onload = function() {
   });
 
   const navBtn = document.getElementById("navBtn");
-  const mobileMenu = document.getElementById("mobile-menu");
+  const navList = document.getElementById("navList");
   navBtn.addEventListener("click", navToggle);
 
   function navToggle() {
-    mobileMenu.classList.toggle("hidden");
+    navList.classList.toggle("show");
   }
 
 
