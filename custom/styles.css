@@ -141,7 +141,7 @@ section {
   z-index: 0 !important;
 } */
 
-/* Large Screen */
+/* Large Screen Start */
 @media (min-width: 768px) {
   #navbar {
     z-index: 5000;
@@ -169,8 +169,9 @@ section {
     padding-top: 60px;
   }
 }
+/* Large Screen End */
 
-/* Small Screen */
+/* Small Screen Start */
 @media (max-width: 768px) {
   #navbar {
     z-index: 1000;
@@ -202,10 +203,24 @@ section {
     top: -100px !important;
     transition: 350ms ease-in-out;
     background-color: #1d1d1d;
-    width: 100%;
     position: relative;
     top: 100px;
+    margin: 0;
+    width: 50vw !important;
+    text-align: center !important;
+    justify-content: center;
+    height: 200px;
     z-index: -1 !important;
+    align-items: flex-end;
+  }
+
+  #menu-content {
+    z-index: 1500;
+  }
+
+  .nav-list li {
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   /* section > * {
@@ -217,3 +232,4 @@ section {
     transition: 350ms ease-in-out;
   }
 }
+/* Small Screen End */
