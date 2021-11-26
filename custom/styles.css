@@ -133,22 +133,26 @@ section {
   background: #483fbe !important;
 }
 
-.nav-list {
-  z-index: 0 !important;
+/* section > * {
+  z-index: -120 !important;
 }
 
-section {
-  z-index: -120;
-}
+.nav-list > * {
+  z-index: 0 !important;
+} */
 
 /* Large Screen */
 @media (min-width: 768px) {
   #navbar {
-    z-index: 1000;
+    z-index: 5000;
     padding: 10px 0;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     background: #11182756;
   }
+
+  /* #navbar:not(.nav-list) {
+    z-index: 1000;
+  } */
 
   #navbar.sticky {
     padding: 0 0;
@@ -168,15 +172,20 @@ section {
 
 /* Small Screen */
 @media (max-width: 768px) {
-  #navbar.sticky {
+  #navbar {
+    z-index: 1000;
+    position: fixed;
+    top: default;
+    width: 100%;
     padding: default;
+    background: #11182756;
+  }
+
+  #navbar.sticky {
     background: #111827;
   }
 
   .sticky {
-    position: fixed;
-    top: default;
-    width: 100%;
   }
 
   /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
@@ -191,15 +200,20 @@ section {
     flex-direction: column;
     position: relative;
     top: -100px !important;
-    transition: 150ms ease-in-out;
+    transition: 350ms ease-in-out;
     background-color: #1d1d1d;
     width: 100%;
     position: relative;
     top: 100px;
+    z-index: -1 !important;
   }
+
+  /* section > * {
+    z-index: -2;
+  } */
 
   .nav-list.show {
     top: 100px !important;
-    transition: 150ms ease-in-out;
+    transition: 350ms ease-in-out;
   }
 }
